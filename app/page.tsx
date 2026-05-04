@@ -24,6 +24,17 @@ export default function Home() {
       <Production />
       <Calculator />
       <Contact />
+
+      {/* ✅ ADD THIS SECTION */}
+      <div style={{ padding: '40px', textAlign: 'center' }}>
+        <h2>Our Products</h2>
+        <p>
+          <a href="/barcode-labels">Barcode Labels</a> |{' '}
+          <a href="/roll-labels">Roll Labels</a> |{' '}
+          <a href="/hologram-labels">Hologram Labels</a>
+        </p>
+      </div>
+
       <Footer />
       <FloatingWhatsApp />
     </main>
