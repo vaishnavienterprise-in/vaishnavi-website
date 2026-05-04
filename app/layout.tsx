@@ -16,8 +16,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="font-sans antialiased bg-white text-[#111111] overflow-x-hidden selection:bg-[#092E20] selection:text-white" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} scroll-smooth`}
+    >
+      <head>
+        {/* ✅ Google Search Console Verification */}
+        <meta
+          name="google-site-verification"
+          content="GxgyU5kGE8Jsf35DDbJLx-7tFdFYQEU2kMJjRZEDSaQ"
+        />
+      </head>
+
+      <body
+        className="font-sans antialiased bg-white text-[#111111] overflow-x-hidden selection:bg-[#092E20] selection:text-white"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
