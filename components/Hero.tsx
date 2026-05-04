@@ -20,102 +20,75 @@ const TRUST_FEATURES = [
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-[#05110B]">
-      {/* Background Video/Image Concept */}
+
       <div className="absolute inset-0 z-0">
         <Image
           src="/bg.hero.png.jpg"
-          alt="Industrial label printing press"
+          alt="Label Printing"
           fill
-          className="object-cover opacity-30 select-none pointer-events-none mix-blend-luminosity"
+          className="object-cover opacity-30"
           priority
-          referrerPolicy="no-referrer"
         />
-        {/* Gradient overlays to make text readable and feel premium */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#092E20]/95 via-[#0A2F1D]/80 to-[#05110B]/60 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05110B]/80 via-transparent to-[#05110B]" />
-        
-        {/* Subtle grid pattern for technical feel */}
-        <div className="absolute inset-0 bg-[url('https://picsum.photos/id/10/8/8')] opacity-10 mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#092E20]/95 via-[#0A2F1D]/80 to-[#05110B]/60" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col gap-8 max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-1.5 rounded-full backdrop-blur-sm self-start">
-              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
-                Industry Leading Printing Partner
-              </span>
-            </div>
-            
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-serif text-white leading-[1.05] tracking-tight">
-                Premium  <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F3D78E] italic">
-                  Self-Adhesive
-                </span><br />
-                Label Solutions
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-300 font-light max-w-lg leading-relaxed pt-2 border-l-2 border-[#D4AF37] pl-4 ml-1">
-                Quality that sticks. Values that stay. Delivering precision-crafted packaging across India.
-              </p>
-            </div>
 
-            <div className="flex flex-wrap gap-4 pt-2">
+            <h1 className="text-5xl lg:text-6xl font-bold text-white">
+              Self Adhesive Label  
+              <span className="text-[#D4AF37]"> Manufacturer</span>  
+              <br />in Ahmedabad
+            </h1>
+
+            <p className="text-lg text-gray-300">
+              Barcode Labels | Roll Labels | Hologram Labels  
+              <br />Best Price • Fast Delivery • Bulk Orders
+            </p>
+
+            {/* ✅ FIXED BUTTONS */}
+            <div className="flex flex-wrap gap-4">
+
+              {/* CALL */}
+              <a
+                href="tel:+918238290762"
+                className="bg-[#D4AF37] text-black px-6 py-3 rounded font-semibold"
+              >
+                Call Now
+              </a>
+
+              {/* WHATSAPP */}
+              <a
+                href="https://wa.me/918238290762?text=Hi I need label quotation"
+                target="_blank"
+                className="bg-[#25D366] text-white px-6 py-3 rounded font-semibold flex items-center gap-2"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+                WhatsApp
+              </a>
+
+              {/* QUOTE */}
               <a
                 href="#calculator"
-                className="group relative inline-flex justify-center items-center gap-2 overflow-hidden bg-[#D4AF37] text-[#092E20] px-8 py-3.5 rounded font-medium hover:bg-[#F3D78E] transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]"
+                className="border border-white text-white px-6 py-3 rounded"
               >
-                <span>Get Instant Quote</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Get Quote
               </a>
-              <a
-                href="https://wa.me/918200223356"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex justify-center items-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3.5 rounded font-medium hover:bg-white/20 transition-all"
-              >
-                <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
-                WhatsApp Us
-              </a>
+
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-10 border-t border-white/10 mt-4">
-              {TRUST_FEATURES.map((feature, i) => (
-                <div key={i} className="flex flex-col gap-1">
-                  <div className="w-8 h-px bg-[#D4AF37] mb-2" />
-                  <span className="text-white font-medium text-sm leading-tight">{feature}</span>
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+              {TRUST_FEATURES.map((f, i) => (
+                <span key={i} className="text-sm text-white">{f}</span>
               ))}
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="hidden lg:block relative h-[600px] w-full"
-          >
-            {/* Hologram / Abstract Premium Visual overlay representation */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0,transparent_50%)] pointer-events-none mix-blend-screen" />
-            
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[85%] h-[80%] rounded overflow-hidden shadow-2xl border border-white/10 transform rotate-2 hover:rotate-1 transition-transform duration-700 ease-out">
-               <Image
-                  src="/Plates.jpg"
-                  alt="Premium Label Rolls"
-                  fill
-                  className="object-cover"
-                  referrerPolicy="no-referrer"
-               />
-               {/* Shine effect overlay */}
-               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 -translate-x-full hover:translate-x-full" style={{ zIndex: 2 }} />
-            </div>
           </motion.div>
 
         </div>
