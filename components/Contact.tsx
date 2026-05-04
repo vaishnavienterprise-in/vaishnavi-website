@@ -1,122 +1,125 @@
 'use client';
 
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const form = e.currentTarget;
+
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const phone = (form.elements.namedItem('phone') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+    const text = `Hi Vaishnavi Enterprise,%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Requirement: ${message}`;
+
+    const whatsappURL = `https://wa.me/918238290762?text=${text}`;
+
+    window.open(whatsappURL, '_blank');
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#092E20] text-white overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#05110B] -skew-x-12 translate-x-32 hidden lg:block" />
+    <section id="contact" className="py-24 bg-[#092E20] text-white">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16">
           
-          <div className="space-y-12">
+          {/* LEFT SIDE */}
+          <div className="space-y-10">
+
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-                06 — Get In Touch
-              </span>
-              <h2 className="text-4xl lg:text-5xl font-serif mt-4 mb-6 leading-tight">
-                Let&apos;s Discuss Your <br />
-                <span className="italic text-[#D4AF37]">Packaging Needs</span>
+              <h2 className="text-4xl font-bold">
+                Contact Us
               </h2>
+              <p className="text-gray-300 mt-2">
+                Get best label quotation instantly
+              </p>
             </div>
 
-            <div className="grid gap-8">
-              
-              {/* PHONE */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-[#D4AF37]" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Call Us</p>
-                  <p className="font-medium">+91 8238290762</p>
-                </div>
-              </div>
-              
-              {/* EMAIL (UPDATED) */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-[#D4AF37]" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Email Us</p>
-                  <a 
-                    href="mailto:vaishnavienterprise.print@gmail.com" 
-                    className="block hover:text-[#D4AF37] transition-colors"
-                  >
-                    vaishnavienterprise.print@gmail.com
-                  </a>
-                </div>
-              </div>
-
+            {/* PHONE */}
+            <div className="flex items-center gap-3">
+              <Phone className="text-[#D4AF37]" />
+              <a href="tel:+918238290762" className="hover:text-[#D4AF37]">
+                +91 8238290762
+              </a>
             </div>
 
-            <div className="pt-8 border-t border-white/10 space-y-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-[#D4AF37] shrink-0 mt-1" />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Office Address</p>
-                  <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
-                    315, Suncor Plaza, Nr. Jashodanagar BRTS Bus Stand, N.H. - 8, Jashodanagar, Ahmedabad - 380026
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-[#D4AF37] shrink-0 mt-1" />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">Factory Address</p>
-                  <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
-                    9, P.A. Ind. Estate, 15, Amba Estate, Nr. G Colony, B/h. Old Navneet Press, Sukhramnagar Rd, Rakhial, Ahmedabad, Gujarat - 380021
-                  </p>
-                </div>
-              </div>
+            {/* EMAIL (ONLY ONE) */}
+            <div className="flex items-center gap-3">
+              <Mail className="text-[#D4AF37]" />
+              <a href="mailto:vaishnavienterprise.print@gmail.com" className="hover:text-[#D4AF37]">
+                vaishnavienterprise.print@gmail.com
+              </a>
             </div>
+
+            {/* WHATSAPP BUTTON */}
+            <a
+              href="https://wa.me/918238290762?text=Hi I need label quotation"
+              target="_blank"
+              className="bg-[#25D366] px-6 py-3 rounded inline-block"
+            >
+              Chat on WhatsApp
+            </a>
+
+            {/* ADDRESS */}
+            <div className="text-sm text-gray-300">
+              <p>315, Suncor Plaza, Ahmedabad</p>
+              <p>Rakhial, Ahmedabad</p>
+            </div>
+
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white text-[#111111] p-8 md:p-12 rounded shadow-2xl"
-          >
-            <h3 className="text-2xl font-serif text-[#092E20] mb-8">Quick Inquiry</h3>
+          {/* RIGHT SIDE FORM */}
+          <motion.div className="bg-white text-black p-8 rounded">
+
+            <h3 className="text-2xl mb-6">Get Quote</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              
-              <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-gray-500">Full Name</label>
-                <input type="text" required className="w-full border-b pb-2 outline-none" />
-              </div>
 
-              <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-gray-500">Phone Number</label>
-                <input type="tel" required className="w-full border-b pb-2 outline-none" />
-              </div>
+              <input 
+                name="name"
+                type="text" 
+                placeholder="Your Name"
+                required
+                className="w-full border-b pb-2 outline-none"
+              />
 
-              <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-gray-500">Requirement Details</label>
-                <textarea rows={4} required className="w-full border-b pb-2 outline-none resize-none" />
-              </div>
+              <input 
+                name="phone"
+                type="tel" 
+                placeholder="Phone Number"
+                required
+                className="w-full border-b pb-2 outline-none"
+              />
 
-              <button 
+              <textarea 
+                name="message"
+                placeholder="Your Requirement"
+                rows={4}
+                required
+                className="w-full border-b pb-2 outline-none"
+              />
+
+              <button
                 type="submit"
-                className="w-full bg-[#092E20] text-white py-4 rounded font-medium hover:bg-[#062016]"
+                className="w-full bg-[#092E20] text-white py-3 rounded"
               >
-                Send Inquiry
+                Send on WhatsApp
               </button>
 
             </form>
+
           </motion.div>
 
         </div>
       </div>
+
     </section>
   );
 }
