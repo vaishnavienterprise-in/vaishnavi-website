@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg.hero.png.jpg"
+          src="https://picsum.photos/1200/800"
           alt="Label Printing"
           fill
           className="object-cover opacity-30"
