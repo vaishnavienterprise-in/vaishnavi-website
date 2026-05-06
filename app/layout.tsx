@@ -1,8 +1,5 @@
-'use client';
-
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
-import { useEffect } from 'react';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -18,29 +15,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js');
-    }
-  }, []);
-
   return (
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
       <head>
-        {/* Google Verification */}
         <meta
           name="google-site-verification"
           content="GxgyU5kGE8Jsf35DDbJLx-7tFdFYQEU2kMJjRZEDSaQ"
         />
-
-        {/* ✅ PWA SETTINGS */}
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#092E20" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
 
       <body
