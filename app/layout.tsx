@@ -21,10 +21,17 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
       <head>
+        {/* Google Verification */}
         <meta
           name="google-site-verification"
           content="GxgyU5kGE8Jsf35DDbJLx-7tFdFYQEU2kMJjRZEDSaQ"
         />
+
+        {/* ✅ PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+
+        {/* ✅ Theme Color */}
+        <meta name="theme-color" content="#092E20" />
       </head>
 
       <body
