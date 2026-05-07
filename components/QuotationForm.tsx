@@ -50,7 +50,7 @@ export default function QuotationForm() {
                 }}
               >
                 {materials.map((product) => (
-                  <option key={product.id}>
+                  <option key={product.name}>
                     {product.name}
                   </option>
                 ))}
@@ -100,7 +100,12 @@ export default function QuotationForm() {
 
             <div className="flex justify-between">
               <span>GST</span>
-              <span>18%</span>
+              <span>{selectedProduct.gst}%</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span>Unit</span>
+              <span>{selectedProduct.unit}</span>
             </div>
 
             <div className="flex justify-between">
