@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { products } from '@/app/data/products';
+import materials from '@/app/data/products';
 
 export default function QuotationForm() {
-  const [selectedProduct, setSelectedProduct] = useState(products[0]);
+  const [selectedProduct, setSelectedProduct] = useState(materials[0]);
 
   const [quantity, setQuantity] = useState('');
   const [rate, setRate] = useState('');
@@ -36,20 +36,20 @@ export default function QuotationForm() {
 
             <div>
               <label className="block text-sm font-medium mb-2">
-                Product
+                Material
               </label>
 
               <select
                 className="w-full border rounded-lg p-3"
                 onChange={(e) => {
-                  const product = products.find(
+                  const product = materials.find(
                     (p) => p.name === e.target.value
                   );
 
                   if (product) setSelectedProduct(product);
                 }}
               >
-                {products.map((product) => (
+                {materials.map((product) => (
                   <option key={product.id}>
                     {product.name}
                   </option>
