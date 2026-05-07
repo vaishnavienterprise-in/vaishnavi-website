@@ -1,8 +1,6 @@
-export const products = [
+export const materials = [
   {
-    id: 1,
-    name: "Chromo Label",
-    material: "Chromo",
+    name: "Chromo",
     hsn: "48211020",
     gst: 18,
     unit: "Nos",
@@ -10,9 +8,7 @@ export const products = [
   },
 
   {
-    id: 2,
-    name: "White PP Label",
-    material: "White PP",
+    name: "White PP",
     hsn: "48211020",
     gst: 18,
     unit: "Nos",
@@ -20,9 +16,7 @@ export const products = [
   },
 
   {
-    id: 3,
-    name: "Silver PP Label",
-    material: "Silver PP",
+    name: "Silver PP",
     hsn: "48211020",
     gst: 18,
     unit: "Nos",
@@ -30,9 +24,7 @@ export const products = [
   },
 
   {
-    id: 4,
-    name: "Hologram Label",
-    material: "Hologram",
+    name: "Hologram",
     hsn: "48211020",
     gst: 18,
     unit: "Nos",
@@ -40,9 +32,7 @@ export const products = [
   },
 
   {
-    id: 5,
-    name: "Barcode Label",
-    material: "Barcode",
+    name: "Barcode",
     hsn: "48211020",
     gst: 18,
     unit: "Nos",
