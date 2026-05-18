@@ -17,6 +17,7 @@ export default function CRMPage() {
   const [phone, setPhone] = useState('');
   const [status, setStatus] = useState('New');
   const [followup, setFollowup] = useState('');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const savedLeads = localStorage.getItem('ve-leads');
@@ -48,6 +49,14 @@ export default function CRMPage() {
     setPhone('');
     setStatus('New');
     setFollowup('');
+  };
+
+  const deleteLead = (phone: string) => {
+    const updatedLeads = leads.filter(
+      (lead) => lead.phone !== phone
+    );
+
+    setLeads(updatedLeads);
   };
 
   return (
@@ -113,9 +122,29 @@ export default function CRMPage() {
 
         </div>
 
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="Search customer or company..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full border p-4 rounded-xl"
+          />
+        </div>
+
         <div className="space-y-4">
 
-          {leads.map((lead, index) => (
+          {leads
+            .filter(
+              (lead) =>
+                lead.name
+                  .toLowerCase()
+                  .includes(search.toLowerCase()) ||
+                lead.company
+                  .toLowerCase()
+                  .includes(search.toLowerCase())
+            )
+            .map((lead, index) => (
 
             <div
               key={index}
@@ -180,6 +209,13 @@ export default function CRMPage() {
                   >
                     Send Quotation
                   </a>
+
+                  <button
+                    onClick={() => deleteLead(lead.phone)}
+                    className="bg-red-600 text-white px-4 py-2 rounded-xl"
+                  >
+                    Delete
+                  </button>
 
                 </div>
 
