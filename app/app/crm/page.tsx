@@ -173,6 +173,14 @@ export default function CRMPage() {
                     Send Intro
                   </a>
 
+                  <a
+                    href={`https://wa.me/91${lead.phone}?text=Hello ${lead.name}, please check your quotation from Vaishnavi Enterprise https://vaishnavienterprise.in/app/quotation`}
+                    target="_blank"
+                    className="bg-[#D4AF37] text-[#092E20] px-4 py-2 rounded-xl font-semibold"
+                  >
+                    Send Quotation
+                  </a>
+
                 </div>
 
               </div>
